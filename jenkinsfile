@@ -1,15 +1,16 @@
 node {
 	try  {
 	notify('Job Started') 
-         stage('Git-Checkout for Teraform') {
-             git 'https://github.com/vibhavanya/microservice2.git'
-          }
-
-      
+	 
+   stage('Git-Checkout') {
+	git 'https://github.com/vibhavanya/microservice2.git'
+	}
+    
 	def project_path="Code/petclinic"
  
 	dir(project_path) {
-   
+  
+	
     stage('Jfrog Artifactory download'){
 		def server= Artifactory.server 'Artifactory'
 		def downloadSpec = """{
